@@ -12,6 +12,9 @@ namespace WebService
     {
         public static void Register(HttpConfiguration config)
         {
+
+            config.EnableCors();
+
             // Web API 設定和服務
             // 將 Web API 設定成僅使用 bearer 權杖驗證。
             config.SuppressDefaultHostAuthentication();
