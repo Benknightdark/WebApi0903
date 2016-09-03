@@ -12,6 +12,7 @@ using WebApi0903.Models;
 
 namespace WebApi0903.Controllers
 {
+    [RoutePrefix("clients")]
     public class ClientsController : ApiController
     {
         private FabricsEntities db = new FabricsEntities();
@@ -21,13 +22,13 @@ namespace WebApi0903.Controllers
             db.Configuration.LazyLoadingEnabled = false;
         }
 
-        [Route("clients")]
+        [Route("")]
         public IQueryable<Client> GetClient()
         {
             return db.Client;
         }
 
-        [Route("clients/{id:int}")]
+        [Route("{id:int}")]
         [ResponseType(typeof(Client))]
         public IHttpActionResult GetClient(int id)
         {
@@ -40,7 +41,7 @@ namespace WebApi0903.Controllers
             return Ok(client);
         }
 
-        [Route("clients/{id:int}/orders")]
+        [Route("{id:int}/orders")]
         public IHttpActionResult GetClientOrder(int id)
         {
             var order = db.Order.Where(p => p.ClientId == id);
