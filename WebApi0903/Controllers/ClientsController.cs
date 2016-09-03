@@ -51,7 +51,21 @@ namespace WebApi0903.Controllers
             }
             return Ok(order);
         }
-        
+
+        [Route("{id:int}/orders/{*date:datetime}")]
+        public IHttpActionResult GetClientOrderByDate(int id, DateTime date)
+        {
+            var order = db.Order.Where(p => p.ClientId == id
+                && p.OrderDate.Value.Year == date.Year
+                && p.OrderDate.Value.Month == date.Month
+                && p.OrderDate.Value.Day == date.Day);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return Ok(order);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
