@@ -79,6 +79,36 @@ namespace WebApi0903.Controllers
             return Ok(order);
         }
 
+
+        [Route("{id:int}/name1")]
+        public string GetClientName1(int id)
+        {
+            Client client = db.Client.Find(id);
+            if (client == null) { return ""; }
+            return client.FirstName;
+        }
+        [Route("{id:int}/name2")]
+        public IHttpActionResult GetClientName2(int id)
+        {
+            Client client = db.Client.Find(id);
+            if (client == null) { return NotFound(); }
+            return Ok(client.FirstName);
+        }
+        [Route("{id:int}/name3")]
+        public HttpResponseMessage GetClientName3(int id)
+        {
+            Client client = db.Client.Find(id);
+            if (client == null) {
+                return new HttpResponseMessage() { StatusCode = HttpStatusCode.NotFound };
+            }
+            return new HttpResponseMessage()
+            {
+                 StatusCode = HttpStatusCode.OK,
+                 Content = new StringContent(client.FirstName),
+                 ReasonPhrase = "MY STRING"
+            };
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
