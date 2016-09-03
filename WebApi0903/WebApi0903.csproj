@@ -238,6 +238,7 @@
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\Occupation.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
@@ -331,6 +332,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

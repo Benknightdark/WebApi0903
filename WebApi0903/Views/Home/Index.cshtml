@@ -9,7 +9,7 @@
         <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
         a broad range of clients, including browsers and mobile devices. ASP.NET Web API
         is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+        <p><button onclick="getdata()" class="btn btn-default">Learn more &raquo;</button></p>
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>
@@ -22,3 +22,18 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
     </div>
 </div>
+
+<script>    
+    function getdata() {
+        $.get('/JsonFormatterSupportedEncodings')
+            .success(function (data) {
+                console.log("成功");
+                console.log(data);
+            })
+            .error(function (err) {
+                console.log("失敗");
+                console.log(err);
+            });
+            
+    }
+</script>
