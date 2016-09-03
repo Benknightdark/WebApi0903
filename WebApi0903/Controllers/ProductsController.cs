@@ -21,7 +21,6 @@ namespace WebApi0903.Controllers
             db.Configuration.LazyLoadingEnabled = false;
         }
 
-        [Route("products")]
         // GET: api/Products
         public IQueryable<Product> GetProduct()
         {
