@@ -66,6 +66,19 @@ namespace WebApi0903.Controllers
             return Ok(order);
         }
 
+        [Route("{id:int}/orders/{year:int}/{month:int}")]
+        public IHttpActionResult GetClientOrderByMonth(int id, int year, int month)
+        {
+            var order = db.Order.Where(p => p.ClientId == id
+                && p.OrderDate.Value.Year == year
+                && p.OrderDate.Value.Month == month);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return Ok(order);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
