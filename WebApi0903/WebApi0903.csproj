@@ -212,6 +212,7 @@
     <Compile Include="Controllers\MyErrorObject.cs" />
     <Compile Include="Controllers\MyHandleErrorAttribute.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ValidateModelAttribute.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

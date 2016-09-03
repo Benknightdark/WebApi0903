@@ -78,6 +78,7 @@ namespace WebApi0903.Controllers
 
         // POST: api/Products
         [ResponseType(typeof(Product))]
+        [ValidateModel]
         public IHttpActionResult PostProduct(Product product)
         {
             if (!ModelState.IsValid)
