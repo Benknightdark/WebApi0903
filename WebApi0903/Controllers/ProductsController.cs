@@ -15,7 +15,12 @@ namespace WebApi0903.Controllers
     public class ProductsController : ApiController
     {
         private FabricsEntities db = new FabricsEntities();
-        
+
+        public ProductsController()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+        }
+
         // GET: api/Products
         public IQueryable<Product> GetProduct()
         {
