@@ -109,7 +109,6 @@ namespace WebApi0903.Controllers
 
         [Route("products/{id}")]
         [ResponseType(typeof(Product))]
-        [MyHandleError]
         public IHttpActionResult PatchProduct(int id, [FromUri]ProductPatchVM item)
         {
             Product product = db.Product.Find(id);
