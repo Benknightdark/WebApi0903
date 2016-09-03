@@ -106,6 +106,23 @@ namespace WebApi0903.Controllers
             return Ok(product);
         }
 
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult PatchProduct(int id, ProductPatchVM item)
+        {
+            Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.ProductName = item.ProductName;
+            product.Price = item.Price;
+            
+            db.SaveChanges();
+
+            return Ok(product);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
