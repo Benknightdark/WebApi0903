@@ -7,13 +7,14 @@ using System.Web.Http;
 
 namespace WebApi0903.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        [Route("JsonFormatterSupportedEncodings")]
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedEncodings.ToList());
         }
 
         // GET api/values/5

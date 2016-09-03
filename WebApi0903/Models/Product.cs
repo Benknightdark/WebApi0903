@@ -9,6 +9,7 @@
 
 namespace WebApi0903.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -25,10 +26,12 @@ namespace WebApi0903.Models
         [Required(ErrorMessage = "請輸入商品名稱")]
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
+        [JsonIgnore]
         public Nullable<bool> Active { get; set; }
         public Nullable<decimal> Stock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<OrderLine> OrderLine { get; set; }
     }
 }
