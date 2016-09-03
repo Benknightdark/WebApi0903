@@ -107,8 +107,9 @@ namespace WebApi0903.Controllers
             return Ok(product);
         }
 
+        [Route("products/{id}")]
         [ResponseType(typeof(Product))]
-        public IHttpActionResult PatchProduct(int id, ProductPatchVM item)
+        public IHttpActionResult PatchProduct(int id, [FromUri]ProductPatchVM item)
         {
             Product product = db.Product.Find(id);
             if (product == null)
